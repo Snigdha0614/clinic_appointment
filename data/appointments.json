@@ -1,0 +1,45 @@
+[
+  {
+    "id": "apt-101",
+    "patientName": "Michael Scott",
+    "phone": "+1 555-0199",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Sarah Jenkins",
+    "specialization": "Cardiology",
+    "date": "2026-10-26",
+    "time": "10:00 AM - 10:30 AM",
+    "fee": 80,
+    "reason": "Routine cardiac checkup and blood pressure evaluation",
+    "status": "Confirmed",
+    "createdAt": "2026-10-23T10:00:00.000Z"
+  },
+  {
+    "id": "apt-102",
+    "patientName": "Emily Davis",
+    "phone": "+1 555-0144",
+    "doctorId": "doc-5",
+    "doctorName": "Dr. Priya Sharma",
+    "specialization": "General Medicine",
+    "date": "2026-10-27",
+    "time": "11:30 AM - 12:00 PM",
+    "fee": 45,
+    "reason": "Annual physical and blood sugar review",
+    "status": "Confirmed",
+    "createdAt": "2026-10-23T11:15:00.000Z"
+  },
+  {
+    "id": "apt-mvkv2umd",
+    "patientName": "Test Student Patient",
+    "phone": "555-987-6543",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Sarah Jenkins",
+    "specialization": "Cardiology",
+    "date": "2026-10-26",
+    "time": "02:00 PM - 02:30 PM",
+    "fee": 72,
+    "reason": "Testing simplified college mini-project appointment flow",
+    "status": "Cancelled",
+    "createdAt": "2026-10-23T11:03:07.141Z",
+    "cancelledAt": "2026-10-23T11:03:07.147Z"
+  }
+]

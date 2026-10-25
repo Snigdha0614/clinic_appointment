@@ -1,0 +1,74 @@
+[
+  {
+    "id": "doc-1",
+    "name": "Dr. Sarah Jenkins",
+    "specialization": "Cardiology",
+    "experience": "12 Years",
+    "fee": 80,
+    "qualifications": "MBBS, MD (Cardiology), FACC",
+    "availableDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "availableHours": "09:00 AM - 05:00 PM",
+    "clinic": "ClinicCare Heart & Vascular Wing",
+    "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop"
+  },
+  {
+    "id": "doc-2",
+    "name": "Dr. Marcus Chen",
+    "specialization": "Neurology",
+    "experience": "15 Years",
+    "fee": 95,
+    "qualifications": "MD (Neurology), PhD Neuroscience",
+    "availableDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "availableHours": "09:30 AM - 04:30 PM",
+    "clinic": "ClinicCare Neurosciences Wing",
+    "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop"
+  },
+  {
+    "id": "doc-3",
+    "name": "Dr. Elena Rodriguez",
+    "specialization": "Pediatrics",
+    "experience": "9 Years",
+    "fee": 60,
+    "qualifications": "MBBS, MD (Pediatrics), FAAP",
+    "availableDays": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"],
+    "availableHours": "08:30 AM - 03:30 PM",
+    "clinic": "ClinicCare Children's Pavilion",
+    "image": "https://images.unsplash.com/photo-1594824813583-4a11be24e4d4?w=300&h=300&fit=crop"
+  },
+  {
+    "id": "doc-4",
+    "name": "Dr. James Wilson",
+    "specialization": "Dermatology",
+    "experience": "11 Years",
+    "fee": 75,
+    "qualifications": "MBBS, MD (Dermatology), FAAD",
+    "availableDays": ["Monday", "Tuesday", "Thursday", "Friday"],
+    "availableHours": "10:00 AM - 06:00 PM",
+    "clinic": "ClinicCare Skin & Wellness Clinic",
+    "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&h=300&fit=crop"
+  },
+  {
+    "id": "doc-5",
+    "name": "Dr. Priya Sharma",
+    "specialization": "General Medicine",
+    "experience": "8 Years",
+    "fee": 45,
+    "qualifications": "MBBS, MD (Internal Medicine)",
+    "availableDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "availableHours": "09:00 AM - 05:00 PM",
+    "clinic": "ClinicCare Primary Healthcare Center",
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=300&fit=crop"
+  },
+  {
+    "id": "doc-6",
+    "name": "Dr. David Miller",
+    "specialization": "Orthopedics",
+    "experience": "14 Years",
+    "fee": 90,
+    "qualifications": "MS (Orthopedic Surgery), FRCS",
+    "availableDays": ["Monday", "Wednesday", "Thursday", "Friday"],
+    "availableHours": "09:00 AM - 04:00 PM",
+    "clinic": "ClinicCare Joint & Spine Center",
+    "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop"
+  }
+]

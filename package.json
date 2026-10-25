@@ -1,0 +1,22 @@
+{
+  "name": "clinic_appointment",
+  "version": "1.0.0",
+  "description": "Clinic Appointment Booking System - A simple, full-stack college mini-project using HTML, CSS, JavaScript, Node.js, and Express.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "clinic",
+    "appointment",
+    "booking",
+    "express",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

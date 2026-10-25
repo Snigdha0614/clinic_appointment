@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinicCare – Clinic Appointment Booking System</title>
+  <!-- Stylesheets with distinct purposes as requested -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-icon">+</span>
+        <span>Clinic<span class="logo-accent">Care</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#doctors">Our Doctors</a></li>
+          <li><a href="#book" class="btn-book-nav">Book Appointment</a></li>
+          <li><a href="#appointments">My Appointments</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <span class="hero-badge">Verified Healthcare Specialists</span>
+      <h1 class="hero-title">
+        Simple, Fast & Reliable <br>
+        <span>Clinic Appointment Booking</span>
+      </h1>
+      <p class="hero-subtitle">
+        Welcome to ClinicCare. Consult with experienced doctors across cardiology, pediatrics,
+        dermatology, and general medicine. Choose your doctor and secure your appointment slot in seconds.
+      </p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Book an Appointment</a>
+        <a href="#doctors" class="btn btn-outline">View Available Doctors</a>
+        <a href="#appointments" class="btn btn-secondary">Check Booked Appointments</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notification / Alert Container -->
+  <div class="container" style="margin-top: 24px;">
+    <div id="alertContainer"></div>
+  </div>
+
+  <!-- Available Doctors Section -->
+  <section id="doctors" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Medical Specialists</span>
+        <h2 class="section-title">Available Doctors & Consultation Fees</h2>
+        <p class="section-subtitle">
+          Choose a qualified doctor and schedule your visit during their available working hours.
+        </p>
+      </div>
+
+      <!-- Doctors Grid (Populated dynamically by app.js from /api/doctors) -->
+      <div id="doctorsList" class="doctors-grid">
+        <!-- Rendered via JavaScript -->
+        <p style="text-align: center; color: #64748b; grid-column: 1/-1;">Loading doctors directory...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Booking Section -->
+  <section id="book" class="section booking-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Easy Scheduling</span>
+        <h2 class="section-title">Book Your Appointment</h2>
+        <p class="section-subtitle">
+          Fill in your details below. Slots are verified in real time to avoid scheduling conflicts.
+        </p>
+      </div>
+
+      <div class="booking-card">
+        <form id="appointmentForm" novalidate>
+          <div class="form-grid">
+            <!-- Patient Name -->
+            <div class="form-group">
+              <label for="patientName">Patient Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="patientName"
+                class="form-control"
+                placeholder="e.g. John Doe"
+                required
+              >
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="patientPhone">Contact Phone Number <span class="required">*</span></label>
+              <input
+                type="tel"
+                id="patientPhone"
+                class="form-control"
+                placeholder="e.g. +1 555-0199 or 9876543210"
+                required
+              >
+            </div>
+
+            <!-- Doctor Selection -->
+            <div class="form-group">
+              <label for="doctorSelect">Select Doctor <span class="required">*</span></label>
+              <select id="doctorSelect" class="form-control" required>
+                <option value="">-- Choose a Doctor --</option>
+              </select>
+            </div>
+
+            <!-- Patient Category (Used by calculator.js for discounts) -->
+            <div class="form-group">
+              <label for="patientCategory">Patient Category</label>
+              <select id="patientCategory" class="form-control">
+                <option value="regular">General Patient (Standard Fee)</option>
+                <option value="senior">Senior Citizen (60+ yrs) - 15% Off</option>
+                <option value="student">Student / Child - 10% Off</option>
+              </select>
+            </div>
+
+            <!-- Appointment Date -->
+            <div class="form-group">
+              <label for="appointmentDate">Appointment Date <span class="required">*</span></label>
+              <input
+                type="date"
+                id="appointmentDate"
+                class="form-control"
+                required
+              >
+            </div>
+
+            <!-- Appointment Time Slot -->
+            <div class="form-group">
+              <label for="appointmentTime">Preferred Time Slot <span class="required">*</span></label>
+              <select id="appointmentTime" class="form-control" required>
+                <option value="">-- Choose Time Slot --</option>
+              </select>
+            </div>
+
+            <!-- Reason for Visit -->
+            <div class="form-group full-width">
+              <label for="visitReason">Reason for Visit / Symptoms <span class="required">*</span></label>
+              <textarea
+                id="visitReason"
+                class="form-control"
+                rows="3"
+                placeholder="Briefly describe your symptoms or reason for the consultation (e.g., fever, regular cardiac review, skin allergy)..."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Dynamic Fee Calculator Box (Calculated via calculator.js) -->
+          <div class="calculator-box" id="feeCalculatorDisplay">
+            <div>
+              <span class="calculator-label">Estimated Consultation Fee</span>
+              <span class="calculator-note" id="feeBreakdownNote">Select a doctor to calculate the fee</span>
+            </div>
+            <div class="calculator-value" id="totalFeeAmount">$0.00</div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn" class="btn-submit-booking">
+            Confirm & Book Appointment
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Management Section -->
+  <section id="appointments" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Appointment Records</span>
+        <h2 class="section-title">Booked Appointments</h2>
+        <p class="section-subtitle">
+          View all registered clinic appointments, check current statuses, or cancel an upcoming visit.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <div class="table-toolbar">
+          <div class="table-title">
+            Scheduled Patient Visits
+            <span id="appointmentCountBadge" class="table-count-badge">0 Bookings</span>
+          </div>
+          <div class="table-actions">
+            <button id="refreshAppointmentsBtn" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem;">
+              ↻ Refresh List
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="appointments-table">
+            <thead>
+              <tr>
+                <th>Patient Details</th>
+                <th>Doctor & Specialty</th>
+                <th>Date</th>
+                <th>Time Slot</th>
+                <th>Reason</th>
+                <th>Fee</th>
+                <th>Status</th>
+                <th style="text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsTableBody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Printable Appointment Slip Modal -->
+  <div id="slipModal" class="modal-overlay">
+    <div class="slip-card">
+      <div class="slip-header">
+        <h3>Official Appointment Slip</h3>
+        <button id="closeSlipBtn" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">&times;</button>
+      </div>
+      <div class="slip-body">
+        <div class="slip-row">
+          <span class="slip-label">Appointment ID:</span>
+          <span class="slip-value" id="slipId">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Patient Name:</span>
+          <span class="slip-value" id="slipPatient">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Contact Phone:</span>
+          <span class="slip-value" id="slipPhone">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Doctor:</span>
+          <span class="slip-value" id="slipDoctor">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Specialization:</span>
+          <span class="slip-value" id="slipSpec">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Appointment Date:</span>
+          <span class="slip-value" id="slipDate">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Time Slot:</span>
+          <span class="slip-value" id="slipTime">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Consultation Fee:</span>
+          <span class="slip-value" id="slipFee">-</span>
+        </div>
+        <div class="slip-row">
+          <span class="slip-label">Reason for Visit:</span>
+          <span class="slip-value" id="slipReason">-</span>
+        </div>
+      </div>
+      <div class="slip-footer">
+        <button id="printSlipBtn" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">
+          🖨️ Print Slip
+        </button>
+        <button id="dismissSlipBtn" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">ClinicCare Health Center</div>
+          <p>
+            Dedicated to providing accessible, friendly, and reliable medical consultations.
+            Equipped with modern facilities and board-certified healthcare professionals.
+          </p>
+          <p style="color: #64748b; font-size: 0.8rem;">
+            Academic Mini-Project • Built with HTML, CSS, JavaScript, Node.js & Express.
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Clinic Hours</div>
+          <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+          <p>Saturday: 9:00 AM - 5:00 PM</p>
+          <p>Sunday: Emergency Consultations</p>
+        </div>
+        <div>
+          <div class="footer-title">Contact & Location</div>
+          <p>742 Evergreen Medical Parkway</p>
+          <p>Suite 300, Medical District</p>
+          <p>Phone: +1 (800) 555-CARE</p>
+          <p>Email: appointments@cliniccare.local</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="currentYear"></span> ClinicCare Appointment Booking System. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts in order: Types, Calculator, then Main App -->
+  <script src="types.js"></script>
+  <script src="calculator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
